@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.wattpadpremium</groupId>
-    <artifactId>FastJavaPointer</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>fastjavapointer</artifactId>
+    <version>1.0.1</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
