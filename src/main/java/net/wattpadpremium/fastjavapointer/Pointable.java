@@ -9,10 +9,10 @@ public class Pointable {
     private Pointable(int pointer) {
         this.pointer = pointer;
     }
-    public <T> T getInstant(PointerCollection<T> collection){
+    public <T> T readPointer(PointerCollection<T> collection){
         return collection.find(pointer);
     }
-    public <T> void setInstant(PointerCollection<T> collection, T value){
+    public <T> void writePointer(PointerCollection<T> collection, T value){
         collection.insert(pointer, value);
     }
 }

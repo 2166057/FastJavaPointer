@@ -4,11 +4,11 @@ import net.wattpadpremium.fastjavapointer.LogicPointerManager;
 import net.wattpadpremium.fastjavapointer.Pointable;
 import net.wattpadpremium.fastjavapointer.PointerManager;
 
-public class Player extends Pointable {
+public class ExamplePlayer extends Pointable {
     private static final LogicPointerManager pointerManager = PointerManager.createLogicPointerManager();
     private final String name;
     private int health;
-    public Player(String name, int hp) {
+    public ExamplePlayer(String name, int hp) {
         super(pointerManager);
         this.name = name;
         this.health = hp;
