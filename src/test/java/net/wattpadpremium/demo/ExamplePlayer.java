@@ -1,18 +1,18 @@
 package net.wattpadpremium.demo;
 
-import net.wattpadpremium.fastjavapointer.LogicPointerManager;
 import net.wattpadpremium.fastjavapointer.Pointable;
-import net.wattpadpremium.fastjavapointer.Pointer;
 import net.wattpadpremium.fastjavapointer.PointerManager;
 
 public class ExamplePlayer implements Pointable {
-    private static final LogicPointerManager pointerManager = PointerManager.createLogicPointerManager();
-    private final Pointer pointer = new Pointer(pointerManager);
+    private final int pointer;
+    private final PointerManager pointerManager;
     private final String name;
     private int health;
-    public ExamplePlayer(String name, int hp) {
+    public ExamplePlayer(String name, int hp, PointerManager pointerManager) {
+        this.pointerManager = pointerManager;
         this.name = name;
         this.health = hp;
+        this.pointer = pointerManager.createNewPointer();
     }
     public String name() {
         return name;
@@ -24,8 +24,14 @@ public class ExamplePlayer implements Pointable {
         return health;
     }
 
+    public void disconnect() {
+        pointerManager.releasePointer(pointer);
+    }
+
+
+
     @Override
-    public int pointerIndex() {
-        return pointer.index();
+    public int identifiable() {
+        return pointer;
     }
 }

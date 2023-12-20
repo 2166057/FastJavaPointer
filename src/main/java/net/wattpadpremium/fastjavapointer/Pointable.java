@@ -2,11 +2,11 @@ package net.wattpadpremium.fastjavapointer;
 
 
 public interface Pointable{
-    int pointerIndex();
+    int identifiable();
     default <T> T readPointer(PointerCollection<T> collection){
-        return collection.find(pointerIndex());
+        return collection.find(identifiable());
     }
     default <T> void writePointer(PointerCollection<T> collection, T value){
-        collection.insert(pointerIndex(), value);
+        collection.insertAt(identifiable(), value);
     }
 }
