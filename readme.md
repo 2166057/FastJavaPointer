@@ -133,11 +133,38 @@ The SingleWayPointerManager is good for when you have object who life indefinite
 
 #### comparison
 
-| Test           | Count    | Hashmap<Integer,Integer> | Hashmap<String,Integer> | FastJavaPointer |
-|----------------|----------|--------------------------|-------------------------|-----------------|
-| Bulk Inserting | 10       | 0.000s                   | 0.000s                  | 0.000s          |
-| Bulk Inserting | 10000    | 0.001s                   | 0.002s                  | 0.001s          |
-| Bulk Inserting | 100000   | 0.043s                   | 0.058s                  | 0.007s          |
-| Bulk Inserting | 1000000  | 0.079s                   | 0.170s                  | 0.043s          |
-| Bulk Inserting | 10000000 | 0.780s                   | 1.816s                  | 0.463s          |
-| Retrieving     | 1        | 0.000s                   | 0.000s                  | 0.000s          |
+# Insertion Benchmark Results
+
+| Count | Fast Java Pointers | HashMap |
+|-------|--------------------|---------|
+| 10    | 0 ms               | 0 ms    |
+| 100   | 0 ms               | 0 ms    |
+| 1000  | 0 ms               | 0 ms    |
+| 10000 | 0-2 ms             | 1 ms    |
+| 100000| 0-35 ms            | 12 ms   |
+| 1000000| 0-394 ms           | 110 ms  |
+| 10000000| 0-394 ms          | 726 ms  |
+
+
+**Insertion Time Ranges:**
+- Fast Java Pointers: 0 ms - 394 ms
+- HashMap: 0 ms - 726 ms
+
+# Retrieval Benchmark Results
+
+| Count | Fast Java Pointers | HashMap  |
+|-------|--------------------|----------|
+| 10    | 0 ms               | 0 ms     |
+| 100   | 0-1 ms             | 0 ms     |
+| 1000  | 0-1 ms             | 1 ms     |
+| 10000 | 0 ms               | 2 ms     |
+| 100000| 0-3 ms             | 13 ms    |
+| 1000000| 0 ms               | 93 ms    |
+| 10000000| 0 ms               | 820 ms   |
+
+*Note: All times are in milliseconds.*
+
+**Retrieval Time Ranges:**
+- Fast Java Pointers: 0 ms - 3 ms
+- HashMap: 0 ms - 820 ms
+
